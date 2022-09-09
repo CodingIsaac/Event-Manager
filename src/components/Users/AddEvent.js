@@ -9,11 +9,12 @@ const AddEvent = (props) => {
 
   const addEventHandler = (event) => {
     event.preventDefault();
-    if (enteredTitle.trim().length === 0 || enteredDescription.trim().length === 0) {
-        return;
+    if (
+      enteredTitle.trim().length === 0 ||
+      enteredDescription.trim().length === 0
+    ) {
+      return;
     }
-
-    
 
     props.onAddEvent(enteredTitle, enteredDescription);
     setEnteredTitle("");

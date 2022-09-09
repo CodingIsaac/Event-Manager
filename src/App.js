@@ -8,7 +8,7 @@ function App() {
 
  const addUserEventHandler = (uTitle, uDescription) => {
   setUsersList((prevEventList) => {
-    return[...prevEventList, {title: uTitle, description: uDescription, id:Math.random().toString } ];
+    return[...prevEventList, {title: uTitle, description: uDescription, id:Math.random().toString() } ];
   } );
 
  }
