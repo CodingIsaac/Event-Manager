@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Fragment }  from "react";
 import Card from "./Card";
 import Button from "./Button";
 import classes from "./ErrorModal.module.css";
 
 const ErrorModal = (props) => {
   return (
-    <div>
+    <Fragment>
     <div className={classes.backdrop} >
 
     </div>
@@ -23,7 +23,7 @@ const ErrorModal = (props) => {
         </footer>
       </Card>
     </div>
-    </div>
+    </Fragment>
   );
 };
 export default ErrorModal;

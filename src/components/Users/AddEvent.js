@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Card from "../UI/Card";
 import classes from "./AddEvent.module.css";
 import Button from "../UI/Button";
@@ -40,7 +40,7 @@ const AddEvent = (props) => {
   }
 
   return (
-    <div>
+    <Fragment>
    {error && <ErrorModal title = {error.title} description={error.errorDescription} onConfirm={errorMessageHandler} /> }
     <Card className={classes.input}>
       <form onSubmit={addEventHandler}>
@@ -61,7 +61,7 @@ const AddEvent = (props) => {
         <Button type="submit">Add Event</Button>
       </form>
     </Card>
-    </div>
+    </Fragment>
   );
 };
 
