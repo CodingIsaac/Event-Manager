@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import classes from "./AddEvent.module.css";
 import Button from "../UI/Button";
+import ErrorModal from "../UI/ErrorModal"
 
 const AddEvent = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
+  const [error, setErrorMessage] = useState();
 
   const addEventHandler = (event) => {
     event.preventDefault();
@@ -13,6 +15,10 @@ const AddEvent = (props) => {
       enteredTitle.trim().length === 0 ||
       enteredDescription.trim().length === 0
     ) {
+        setErrorMessage({
+            title:"Invalid Input",
+            errorDescription: "Kindly update the title and the description of your event"
+        })
       return;
     }
 
@@ -29,7 +35,13 @@ const AddEvent = (props) => {
     setEnteredDescription(event.target.value);
   };
 
+  const errorMessageHandler = () => {
+    setErrorMessage(null);
+  }
+
   return (
+    <div>
+   {error && <ErrorModal title = {error.title} description={error.errorDescription} onConfirm={errorMessageHandler} /> }
     <Card className={classes.input}>
       <form onSubmit={addEventHandler}>
         <label htmlFor="title">Title</label>
@@ -49,6 +61,7 @@ const AddEvent = (props) => {
         <Button type="submit">Add Event</Button>
       </form>
     </Card>
+    </div>
   );
 };
 
